@@ -31,11 +31,11 @@ y_pred = modelo.predict(X_test)
 print("MSE:", mean_squared_error(y_test, y_pred))
 print("R2:", r2_score(y_test, y_pred))
 
-#creamoe el diagrama del árbol (opcional)
+""" #creamoe el diagrama del árbol (opcional)
 plt.figure(figsize=(12,12))
 plot_tree(modelo, feature_names=X.columns, filled=True)
 plt.show()
-
+ """
 # 7. Guardar el modelo y las columnas
 joblib.dump(modelo, "modelo_precio_casas.pkl")
 joblib.dump(X.columns.tolist(), "columnas_modelo_precio_casas.pkl")
