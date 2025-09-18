@@ -29,10 +29,15 @@ df['antiguedad'] = df['antiguedad'].abs()
 # 4. Normalizar ubicacion corrigiendo errores tipográficos y nulos
 ubicacion_map = {
     'urbnaa': 'urbano',
-    'rurall': 'rural'
+    'rurall': 'rural',
+    'urbano': 'urbano',
+    'rural': 'rural'
 }
 df['ubicacion'] = df['ubicacion'].str.lower().map(ubicacion_map)
 
+# Convertir ubicacion a 0 y 1  (rural=0, urbano=1)
+df['ubicacion'] = df['ubicacion'].replace({'rural': 0, 'urbano': 1})
+df['ubicacion'] = pd.to_numeric(df['ubicacion'], errors='coerce')
 # 5. Detectar y tratar precios anómalos
 df.loc[df['precio'] < 0, 'precio'] = np.nan
 df.loc[df['precio'] > 1000000, 'precio'] = np.nan

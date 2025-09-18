@@ -10,10 +10,8 @@ df = pd.read_csv("casas_limpias.csv")
 print("Datos cargados:")
 print(df.head(25))
 
-# 2. convertir variables categóricas a numéricas
-df = pd.get_dummies(df, columns=["ubicacion",], drop_first=True)
 
-# 3. Definir características y etiqueta
+# 2 Definir características y etiqueta
 X = df.drop(columns=["precio"])
 Y= df["precio"]
 

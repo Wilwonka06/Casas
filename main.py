@@ -11,7 +11,7 @@ app = FastAPI(title="Prediccion precio de Ventas")
 # Modelo de entrada
 class InputData(BaseModel):
     superficie: float
-    habitaciones: int
+    habitaciones: int 
     antiguedad: int
     ubicacion: int
     
